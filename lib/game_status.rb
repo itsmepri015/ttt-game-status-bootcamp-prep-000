@@ -19,3 +19,6 @@ WIN_COMBINATIONS = [
 
 def won()
 end
+
+def won()
+end
