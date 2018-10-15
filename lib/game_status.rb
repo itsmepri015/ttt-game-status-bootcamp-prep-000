@@ -56,7 +56,7 @@ end
 def draw(board)
 end
 
-def over()
+def over(board)
 end
 
 def winner()
