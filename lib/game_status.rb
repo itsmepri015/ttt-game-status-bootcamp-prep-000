@@ -17,7 +17,7 @@ WIN_COMBINATIONS = [
  
 ]
 
-ef won?(board)
+def won?(board)
   WIN_COMBINATIONS.find do |win_combination|
    win_index_1 = win_combination[0]
   win_index_2 = win_combination[1]
@@ -34,6 +34,8 @@ ef won?(board)
   end
 end
 end
+
+
  def full?(board)
   if board.any?{|i| i != "X" && i != "O"}
     return false
@@ -41,6 +43,8 @@ end
     return true
   end
 end
+
+
  def draw?(board)
   if !won?(board) && full?(board)
     return true
@@ -50,6 +54,8 @@ end
     return false
   end
 end
+
+
  def over?(board)
   if won?(board) || draw?(board)
     return true
@@ -57,6 +63,8 @@ end
     return false
   end
 end
+
+
  def winner(board)
   if won?(board)
     return board[won?(board)[0]]
