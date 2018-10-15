@@ -50,7 +50,7 @@ end
 
 end
 
-def full()
+def full(board)
 end
 
 def draw()
