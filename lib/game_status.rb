@@ -17,47 +17,48 @@ WIN_COMBINATIONS = [
  
 ]
 
-def won(board)
-  
-  
-  for each win_combination in WIN_COMBINATIONS
-  
-  win_index_1 = win_combination[0]
+ef won?(board)
+  WIN_COMBINATIONS.find do |win_combination|
+   win_index_1 = win_combination[0]
   win_index_2 = win_combination[1]
   win_index_3 = win_combination[2]
-  win_index_4 = win_combination[3]
-  win_index_5 = win_combination[4]
-  win_index_6 = win_combination[5]
-  win_index_7 = win_combination[6]
-  win_index_8 = win_combination[7]
- 
-  position_1 = board[win_index_1] # load the value of the board at win_index_1
-  position_2 = board[win_index_2] # load the value of the board at win_index_2
-  position_3 = board[win_index_3] # load the value of the board at win_index_3
-  position_4= board[win_index_4]
-  position_5 = board[win_index_5]
-  position_6 = board[win_index_6]
-  position_7= board[win_index_7]
-  position_8 = board[win_index_8]
- 
-  if position_1 == "X" && position_2 == "X" && position_3 == "X" && position_4 == "X"
-    && position_5 == "X" && position_6 == "X" && position_7 == "X" && position_8 == "X"
-    return win_combination # return the win_combination indexes that won.
+   position_1 = board[win_index_1]
+  position_2 = board[win_index_2]
+  position_3 = board[win_index_3]
+   if position_1 == "X" && position_2 == "X" && position_3 == "X"
+    return win_combination
+  elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+    return win_combination
   else
     false
   end
 end
-
 end
-
-def full(board)
+ def full?(board)
+  if board.any?{|i| i != "X" && i != "O"}
+    return false
+  elsif board.all?{|i| i != " "}
+    return true
+  end
 end
-
-def draw(board)
+ def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  elsif won?(board) == false && full(board) == false
+    return false
+  else
+    return false
+  end
 end
-
-def over(board)
+ def over?(board)
+  if won?(board) || draw?(board)
+    return true
+  else
+    return false
+  end
 end
-
-def winner(board)
+ def winner(board)
+  if won?(board)
+    return board[won?(board)[0]]
+  end
 end
