@@ -53,7 +53,7 @@ end
 def full(board)
 end
 
-def draw()
+def draw(board)
 end
 
 def over()
