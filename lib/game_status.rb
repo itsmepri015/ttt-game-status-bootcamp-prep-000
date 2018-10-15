@@ -20,5 +20,8 @@ WIN_COMBINATIONS = [
 def won()
 end
 
-def won()
+def full()
+end
+
+def draw()
 end
